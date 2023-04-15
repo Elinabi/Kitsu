@@ -7,7 +7,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import androidx.viewbinding.ViewBinding
 
-abstract class BaseFragment< VM : ViewModel,VB : ViewBinding,>(@LayoutRes layoutId: Int):
+abstract class BaseFragment< VM : BaseViewModel,VB : ViewBinding,>(@LayoutRes layoutId: Int):
     Fragment(layoutId) {
     abstract val binding: VB
     abstract val viewModel: VM
@@ -16,12 +16,19 @@ abstract class BaseFragment< VM : ViewModel,VB : ViewBinding,>(@LayoutRes layout
         super.onViewCreated(view, savedInstanceState)
         initialise()
         setupListener()
-        setupObserve()
+        setupRequest()
+        setupObserves()
+        setupSubscribers()
     }
 
     protected open fun initialise() {}
 
     protected open fun setupListener() {}
 
-    protected open fun setupObserve() {}
+    protected open fun setupObserves() {}
+
+    protected open fun setupRequest(){}
+
+    protected open fun setupSubscribers(){}
+
 }

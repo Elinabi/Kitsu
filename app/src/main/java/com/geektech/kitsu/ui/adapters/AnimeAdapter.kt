@@ -2,26 +2,26 @@ package com.geektech.kitsu.ui.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.geektech.kitsu.databinding.ItemAnimeBinding
+import com.example.android4lesson1dz.databinding.ItemAnimeBinding
 import com.geektech.kitsu.extension.setImage
 import com.geektech.kitsu.models.DataItem
 
-class AnimeAdapter(val onItemClick: (id: String) -> Unit) :
-    ListAdapter<DataItem, AnimeAdapter.ViewHolder>(
+class AnimeAdapter :
+    PagingDataAdapter<DataItem, AnimeAdapter.ViewHolder>(
         AnimeDiffCallBack
     ) {
 
     inner class ViewHolder(private val binding: ItemAnimeBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        init {
-            itemView.setOnClickListener {
-                getItem(absoluteAdapterPosition)?.let { anime -> onItemClick(anime.id) }
-            }
-        }
+//        init {
+//            itemView.setOnClickListener {
+//                getItem(absoluteAdapterPosition)?.let { anime -> onItemClick(anime.id) }
+//            }
+//        }
 
         fun onBind(item: DataItem) {
             binding.itemText.text = item.attributes.titles.enJp

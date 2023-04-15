@@ -5,8 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.geektech.kitsu.R
-import com.geektech.kitsu.databinding.FragmentHomeBinding
+import com.example.android4lesson1dz.databinding.FragmentHomeBinding
 import com.geektech.kitsu.ui.adapters.ViewPagerAdapter
 import com.google.android.material.tabs.TabLayoutMediator
 

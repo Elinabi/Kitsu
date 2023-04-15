@@ -2,11 +2,7 @@ package com.geektech.kitsu.ui.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.geektech.kitsu.R
-import com.geektech.kitsu.databinding.ActivityMainBinding
-import com.geektech.kitsu.ui.adapters.AnimeAdapter
-import com.geektech.kitsu.ui.adapters.ViewPagerAdapter
-import com.google.android.material.tabs.TabLayoutMediator
+import com.example.android4lesson1dz.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
