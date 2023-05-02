@@ -5,6 +5,7 @@ plugins {
     kotlin ("kapt")
     //Hilt
     id ("com.google.dagger.hilt.android")
+    // SafeArgs
     id ("androidx.navigation.safeargs")
 }
 
@@ -54,6 +55,7 @@ dependencies {
     //Live Cycle
     implementation ("androidx.lifecycle:lifecycle-livedata-ktx:2.6.1")
     implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1")
+    implementation("androidx.legacy:legacy-support-v4:1.0.0")
 
     // Fragment
     val fragment_version = "1.5.5"

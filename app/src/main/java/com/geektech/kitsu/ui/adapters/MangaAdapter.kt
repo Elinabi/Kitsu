@@ -9,18 +9,18 @@ import com.example.android4lesson1dz.databinding.ItemMangaBinding
 import com.geektech.kitsu.extension.setImage
 import com.geektech.kitsu.models.DataItem
 
-class MangaAdapter :
+class MangaAdapter(val onItemClick: (id: String) -> Unit) :
     PagingDataAdapter<DataItem, MangaAdapter.ViewHolder>(AnimeDiffCallBacks
     ) {
 
     inner class ViewHolder(private val binding: ItemMangaBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-//        init {
-//            itemView.setOnClickListener {
-//                getItem(absoluteAdapterPosition)?.let { manga -> onItemClick(manga.id) }
-//            }
-//        }
+        init {
+            itemView.setOnClickListener {
+                getItem(absoluteAdapterPosition)?.let { manga -> onItemClick(manga.id) }
+            }
+        }
 
         fun onBind(item: DataItem) {
             binding.itemText.text = item.attributes.titles.enJp
@@ -41,7 +41,6 @@ class MangaAdapter :
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         getItem(position)?.let { holder.onBind(it) }
     }
-
 
     object AnimeDiffCallBacks : DiffUtil.ItemCallback<DataItem>() {
         override fun areItemsTheSame(

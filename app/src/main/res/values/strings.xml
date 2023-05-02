@@ -2,4 +2,12 @@
     <string name="app_name">Kitsu</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="lorem">lorem</string>
+    <string name="big_text">Unlike cartoons in other countries, which are mainly intended for viewing by children, most of the anime produced is designed for teens and adults, and in many respects it has a high popularity in the world.</string>
+    <string name="kitsu_score">Kitsu score</string>
+    <string name="rank_416_ropularity">⭐ rank #416(Ropularity)</string>
+    <string name="rank_416_popularity">rank_416_Popularity</string>
+    <string name="sign_in">Sign in</string>
+    <string name="enter_password">Enter password</string>
+    <string name="enter_nick_name">Enter nick name</string>
 </resources>

@@ -1,13 +1,15 @@
-package com.geektech.kitsu.ui.fragments.anime
+package com.geektech.kitsu.ui.fragments.main.home.anime
 
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.android4lesson1dz.R
 import com.example.android4lesson1dz.databinding.FragmentAnimeBinding
 import com.geektech.kitsu.base.BaseFragment
 import com.geektech.kitsu.ui.adapters.AnimeAdapter
+import com.geektech.kitsu.ui.fragments.main.home.home.HomeFragmentDirections
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -17,7 +19,7 @@ class AnimeFragment :
 
     override val binding by viewBinding(FragmentAnimeBinding::bind)
     override val viewModel by viewModels<AnimeViewModel>()
-    private var animeAdapter = AnimeAdapter()
+    private var animeAdapter = AnimeAdapter(this::onItemClick)
 
     override fun initialise() {
         binding.animeRecView.apply {
@@ -33,9 +35,9 @@ class AnimeFragment :
             }
         }
     }
-//
-//    private fun onItemClick(id: String) {
-//        findNavController().navigate(AnimeFragmentDirections.actionAnimeFragmentToDetailAnimeFragment(
-//            id))
-//    }
+
+    private fun onItemClick(id: String) {
+        findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToDetailAnimeFragment(
+            id))
+    }
 }

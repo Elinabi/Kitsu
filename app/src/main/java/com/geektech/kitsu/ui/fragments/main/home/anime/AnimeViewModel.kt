@@ -1,4 +1,4 @@
-package com.geektech.kitsu.ui.fragments.anime
+package com.geektech.kitsu.ui.fragments.main.home.anime
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

@@ -3,9 +3,9 @@ package com.geektech.kitsu.ui.adapters
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.geektech.kitsu.ui.fragments.anime.AnimeFragment
-import com.geektech.kitsu.ui.fragments.anime.AnimeViewModel
-import com.geektech.kitsu.ui.fragments.manga.MangaFragment
+import com.geektech.kitsu.ui.fragments.main.home.anime.AnimeFragment
+import com.geektech.kitsu.ui.fragments.main.home.anime.AnimeViewModel
+import com.geektech.kitsu.ui.fragments.main.home.manga.MangaFragment
 
 class ViewPagerAdapter(fragment: Fragment ) :
     FragmentStateAdapter(fragment) {

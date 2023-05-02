@@ -1,18 +1,15 @@
-package com.geektech.kitsu.ui.fragments.manga
+package com.geektech.kitsu.ui.fragments.main.home.manga
 
-import android.util.Log
-import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.android4lesson1dz.R
 import com.example.android4lesson1dz.databinding.FragmentMangaBinding
-import com.geektech.kitsu.Resource
 import com.geektech.kitsu.base.BaseFragment
 import com.geektech.kitsu.ui.adapters.MangaAdapter
+import com.geektech.kitsu.ui.fragments.main.home.home.HomeFragmentDirections
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -22,7 +19,7 @@ class MangaFragment:
 
     override val binding by viewBinding(FragmentMangaBinding::bind)
     override val viewModel by viewModels<MangaViewModel>()
-    private var mangaAdapter = MangaAdapter()
+    private var mangaAdapter = MangaAdapter(this::onItemClick)
 
     override fun initialise() {
         binding.mangaRecView.apply {
@@ -39,7 +36,7 @@ class MangaFragment:
         }
     }
 
-//    private fun onItemClick(id: String) {
-//        findNavController().navigate(MangaFragmentDirections.actionMangaFragmentToDetailMangaFragment(id))
-//    }
+    private fun onItemClick(id: String) {
+        findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToDetailMangaFragment(id))
+    }
 }

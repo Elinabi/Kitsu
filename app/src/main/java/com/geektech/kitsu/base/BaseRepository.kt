@@ -1,16 +1,16 @@
 package com.geektech.kitsu.base
 
 import androidx.lifecycle.liveData
-import com.geektech.kitsu.Resource
-import java.security.cert.Extension
+import com.geektech.kitsu.Utils.Resource
+import kotlinx.coroutines.flow.flow
 
 abstract class BaseRepository {
 
-        fun <T> doRequest(request: suspend () -> T) = liveData{
+    fun <T> doRequest(request: suspend () -> T) = flow {
         emit(Resource.Loading())
         try {
             emit(Resource.Success(request()))
-        }catch (exception: Exception){
+        } catch (exception: Exception) {
             emit(Resource.Error(exception.localizedMessage ?: "Error", null))
         }
     }

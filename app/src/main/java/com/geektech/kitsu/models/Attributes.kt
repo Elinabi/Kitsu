@@ -5,6 +5,8 @@ import com.google.gson.annotations.SerializedName
 data class Attributes(
     @SerializedName("endDate")
     val endDate: String = "",
+    @SerializedName("description")
+    val description: String = "",
     @SerializedName("episodeCount")
     val episodeCount: Int = 0,
     @SerializedName("ratingRank")

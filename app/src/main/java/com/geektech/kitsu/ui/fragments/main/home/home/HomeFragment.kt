@@ -1,4 +1,4 @@
-package com.geektech.kitsu.ui.fragments.home
+package com.geektech.kitsu.ui.fragments.main.home.home
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
