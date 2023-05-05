@@ -39,8 +39,14 @@ class DetailMangaFragment :
                     is Resource.Success -> {
                         it.data.let { anime ->
                             binding.progressBar.isInvisible = true
-//                        binding.mangaTextView.text = anime!!.data.attributes.titles.enJp
-                            binding.mangaImageViewTwo.setImage(anime!!.data.attributes.posterImage.large)
+//                            binding.mangaTextView.text = anime!!.data.attributes.titles.enJp
+                            binding.itemAgerating.text = anime!!.data.attributes.ageRating
+                            binding.itemStatus.text = anime.data.attributes.status
+                            binding.itemPremiered.text = anime.data.attributes.tba
+                            binding.itemCharacter.text = anime.data.attributes.chapterCount.toString()
+                            binding.itemPremiered.text = anime.data.attributes.createdAt
+                            binding.mangaTextView.text = anime.data.attributes.description
+                            binding.mangaImageViewTwo.setImage(anime.data.attributes.posterImage.large)
                             binding.mangaImageView.setImage(anime.data.attributes.posterImage.original)
                             Toast.makeText(requireContext(), "success", Toast.LENGTH_SHORT).show()
                         }

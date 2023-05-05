@@ -11,12 +11,10 @@ import com.example.android4lesson1dz.databinding.FragmentDetailAnimeBinding
 import com.geektech.kitsu.Utils.Resource
 import com.geektech.kitsu.base.BaseFragment
 import com.geektech.kitsu.extension.setImage
-import com.geektech.kitsu.models.ResponsData
 import com.geektech.kitsu.ui.adapters.AnimeDetailAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
-@Suppress("CAST_NEVER_SUCCEEDS")
 @AndroidEntryPoint
 class DetailAnimeFragment :
     BaseFragment<DetailAnimeViewModel, FragmentDetailAnimeBinding>(R.layout.fragment_detail_anime) {
@@ -26,9 +24,9 @@ class DetailAnimeFragment :
     private var animeDetailAdapter = AnimeDetailAdapter()
     private val args by navArgs<DetailAnimeFragmentArgs>()
 
-    override fun initialise() {
-        binding.animeDetailRecView.adapter = animeDetailAdapter
-    }
+//    override fun initialise() {
+//        binding.animeDetailRecView.adapter = animeDetailAdapter
+//    }
 
     override fun setupObserves() {
         lifecycleScope.launch {
@@ -36,12 +34,12 @@ class DetailAnimeFragment :
                 when (it) {
                     is Resource.Error -> {
                         binding.progressBar.isInvisible = true
-                        Toast.makeText(requireContext(), "error", Toast.LENGTH_SHORT).show()
+//                        Toast.makeText(requireContext(), "error", Toast.LENGTH_SHORT).show()
                     }
 
                     is Resource.Loading -> {
                         binding.progressBar.isInvisible = false
-                        Toast.makeText(requireContext(), "Loading", Toast.LENGTH_SHORT).show()
+//                        Toast.makeText(requireContext(), "Loading", Toast.LENGTH_SHORT).show()
                     }
 
                     is Resource.Success -> {
@@ -49,13 +47,14 @@ class DetailAnimeFragment :
                             binding.progressBar.isInvisible = true
                             binding.animeTextView.text = anime!!.data.attributes.description
                             binding.animeName.text = anime.data.attributes.titles.enJp
+                            binding.itemAgerating.text = anime.data.attributes.ageRating
+                            binding.itemStatus.text = anime.data.attributes.status
+                            binding.itemPremiered.text = anime.data.attributes.createdAt
+                            binding.itemCharacter.text = anime.data.attributes.episodeCount.toString()
                             binding.animeImageViewTwo.setImage(anime.data.attributes.posterImage.large)
                             binding.animeImageView.setImage(anime.data.attributes.posterImage.original)
-                            Toast.makeText(requireContext(), "success", Toast.LENGTH_SHORT).show()
-                            animeDetailAdapter.submitList(animeDetailAdapter.currentList)
-//                        lifecycleScope.launch {
-//
-//                        }
+//                            Toast.makeText(requireContext(), "success", Toast.LENGTH_SHORT).show()
+//                            animeDetailAdapter.submitList(animeDetailAdapter.currentList)
                         }
                     }
                 }

@@ -97,4 +97,8 @@ dependencies {
     // paging 3
     val paging_version = "3.1.1"
     implementation ("androidx.paging:paging-runtime:$paging_version")
+
+    //Recycler
+    implementation ("androidx.recyclerview:recyclerview:1.3.0")
+    implementation ("androidx.recyclerview:recyclerview-selection:1.1.0")
 }

@@ -15,6 +15,8 @@ data class Attributes(
     val posterImage: PosterImage,
     @SerializedName("createdAt")
     val createdAt: String = "",
+    @SerializedName("chapterCount")
+    val chapterCount: Int,
     @SerializedName("subtype")
     val subtype: String = "",
     @SerializedName("youtubeVideoId")

@@ -33,20 +33,19 @@ class SignInFragment :
             viewModel.postUserData(authModel).subscribe(
                 onError = {
                     Log.e("TAG", "setupSubscribes: $it")
-                },
-                onSuccess = {
-                    toast("$it")
-                    if (it != null) {
-                        userPreferencesData.apply {
-                            isAuthorized = true
-                            accessToken = it.accessToken
-                            refreshToken = it.refreshToken
-                        }
-                        requireActivity().findNavController(R.id.fragment_container)
-                            .navigate(R.id.action_signFlowFragment_to_mainFlowFragment)
-                    }
                 }
-            )
+            ) {
+                toast("$it")
+                if (it != null) {
+                    userPreferencesData.apply {
+                        isAuthorized = true
+                        accessToken = it.accessToken
+                        refreshToken = it.refreshToken
+                    }
+                    requireActivity().findNavController(R.id.fragment_container)
+                        .navigate(R.id.action_signFlowFragment_to_mainFlowFragment)
+                }
+            }
         }
     }
 }
